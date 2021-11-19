@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>avaliação</title>
+</head>
+<body>
+    <main>
+        <h1>financie seu carro</h1>
+        <form action="salvar.php" method="get" onsubmit="return calcule()">
+            <label for="carro">qual é o modelo do seu carro?</label>
+            <input type="text" name="carro" id="carro">
+            <label for="valor">qual é o valor do carro?</label>
+            <input type="number" name="valor" id="valor">   
+            <label for="parcela">em quantas parcelas voçê deseja pagar?</label>
+            <input type="number" name="parcela" id="parcela" min="1" max="36">
+            <input type="submit" value="Calcular">
+            <p id="resultado">O resultado vai aparecer aqui </p>
+        </form>
+        <script>
+            let resultado = document.getElementById("resultado")
+            function calcule() {
+                let modelo = document.getElementById("carro")
+                let v = Number(document.getElementById("valor").value)
+                let p = Number(document.getElementById("parcela").value)
+                if(p > 0 && p <= 4) {
+                    let par = v / p
+                    
+                    resultado.innerHTML = `O valor ficará R$${v} e a parcela R$${par}`
+                } else if (p = 5 && p <= 12)
+                return false    
+            }
+        </script>
+    </main> 
+</body>
+</html>
