@@ -14,22 +14,30 @@
             <input type="text" name="carro" id="carro">
             <label for="valor">qual é o valor do carro?</label>
             <input type="number" name="valor" id="valor">   
-            <label for="parcela">em quantas parcelas voçê deseja pagar?</label>
+            <label for="parcela">em quantas parcelas você deseja pagar?</label>
             <input type="number" name="parcela" id="parcela" min="1" max="36">
             <input type="submit" value="Calcular">
             <p id="resultado">O resultado vai aparecer aqui </p>
         </form>
         <script>
-            let resultado = document.getElementById("resultado")
+           
             function calcule() {
                 let modelo = document.getElementById("carro")
                 let v = Number(document.getElementById("valor").value)
                 let p = Number(document.getElementById("parcela").value)
+                let resultado = document.getElementById("resultado")
+                
                 if(p > 0 && p <= 4) {
                     let par = v / p
-                    
-                    resultado.innerHTML = `O valor ficará R$${v} e a parcela R$${par}`
-                } else if (p = 5 && p <= 12)
+                    resultado.innerHTML = `O valor ficará R$${v} e a parcela ficará R$${par}`
+                } else if (p = 5 && p <= 12) {
+                    let juros = v * 0.25
+
+                    resultado.innerHTML = `O valor ficará R$${v + juros} e a parcela ficará R$${p}`
+
+                }
+                
+
                 return false    
             }
         </script>
